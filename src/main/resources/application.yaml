@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: demo-astra-spring-ai
+  ai:
+    # Embedding Provider
+    openai:
+      api-key: ${OPENAI_API_KEY}
+    # Vector Store
+    vectorstore:
+      astradb:
+        token: ${ASTRA_DB_APPLICATION_TOKEN}
+        api-endpoint: https://80afbf03-e7e7-4a5f-82f9-f895dabcef7c-us-east1.apps.astra.datastax.com
+        namespace: default_keyspace
+        verbose: true
+        collection:
+          name: wealthapi_openai
+          dimension: 1536
+          similarity: cosine
+          # uncomment (and change collection name) to enable vectorize !
+          #embedding-provider: openai
+          #embedding-key: kkk
+          #embedding-model: text-embedding-ada-002
